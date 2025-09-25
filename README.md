@@ -1,6 +1,7 @@
 # Basic-Frog-Pygame
 
 HOW TO RUN THE GAME:
+
     OBJECTIVE:
         - Eat all 5 flies under 10 seconds to win! Keep track of your best (or worst) games if you play multiple times.
 
