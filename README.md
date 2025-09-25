@@ -1,75 +1,123 @@
 # Basic-Frog-Pygame
+A simple Pygame project where you play as a hungry frog trying to eat flies as fast as possible.  
+---
 
-HOW TO RUN THE GAME:
+## 🎮 How to Run the Game
 
-    OBJECTIVE:
-        - Eat all 5 flies under 10 seconds to win! Keep track of your best (or worst) games if you play multiple times.
+**Prerequisites**
+- Python 3.x  
+- Pygame
 
-    HOW TO EARN POINTS (a better score)
-        - Try to beat your best time. The shorter your time is, the better your score is! (It is like golf, the lower the score, the better the score.)
+**Install Pygame**
+```bash
+pip install pygame
 
-    HOW TO LOSE POINTS (a bad score)
-        - If you have a longer time, you will get a worse score. 
+Run
+python main.py
 
-    HOW TO LOSE
-        - You cannot have a score over 10 seconds or you will lose.
+🏆 Objective
 
-FROG CLASS:
-    - DESCRIPTION:
-        - the frog can move left and right using the LEFT and RIGHT ARROW KEY buttons.
-        - the frog can jump using the UP ARROW KEY button
-        - press the SPACEBAR to eat the flies.
-    - methods:
-        - draw: draw an instance of a frog
-        - get_rect: bounding box for frog
-        - left: shows if frog is looking left (to flip the frog's image and make it appear to move left)
-        - move: moves the frog left and right and updates the frog's position (idle, jumping up, landing, idle) accordingly
-        - follow_mouse: hw instructions instance to move the frog all around the screen
+Eat all 5 flies in under 10 seconds to win.
 
+The game keeps track of your times so you can try to beat your personal best.
 
-FLY CLASS:
-    - DESCRIPTION:
-        - the flies move around randomly and all around the screen, (like the homework instructions).
-        - random images of flies are generated and they are generated at random places on the screen.
-    - methods:
-        - draw: draws an instance of a fly
-        - get_rect: shows bounding box
-        - move: moves it at a certain speed and location
-        - move_randomly: makes the fly shake
+📊 Scoring
 
-TEXT CLASS:
-    - messages are generated using the default text class settings
-    - methods:
-        - draw: draws the message
-        - get_rect: shows bounding box
-        - setMessage: sets all message info
+Better score: Lower time (like golf — lower is better).
 
-DRAWABLE CLASS:
-    - abstract base class
-    - methods:
-        - getters: gets location
-        - setters: set both x and y using setLoc or set x and y individually
-        - visibility: see if drawings are visible and set its visibility
-        - intersects: see if drawings intersect
-        - abstractmethods: pass these methods onto their child classes
+Worse score: Longer time gives a worse score.
 
+Lose condition: If your time is over 10 seconds, you lose.
 
-MAIN SCRIPT:
-    - I set the main script up like how we created the pathway games in 171 for specific people (i.e., in a function), so that i could repeat the game if the user decides they want to play again.
+🕹️ Controls
 
-SCORING TRACKING VALUES:
-    - The main script keeps track of their time and the number of flies eaten. The number of flies eaten is a requirement to win the game. The time is how to see your best times, however, one of the requirements of the game is to have your time be under 10 seconds.
-    - The scoreboard shows previous games played and their top scores.
+← Left Arrow — Move left
 
-REQUIRED ELEMENTS:
-• "Keep track of how many times the predator eats"
-    Found in the top left corner of my game.
+→ Right Arrow — Move right
 
-• "Have a starting condition"
-    The starting condition is when the timer starts.
+↑ Up Arrow — Jump
 
-• "Show changes in condition during the running of the program"
-    The time is kept track of in the left corner and the number of flies eaten is shown in the right corner. The flies disappear when the frog eats them. The frog also jumps and moves around. The flies move around.
+Spacebar — Eat flies
 
-• "Show the final condition. In a game this is a win/lose threshold and in a simulation it may be a predetermined number of predators or prey or time cycles"
-    This is found when the "Congrats" or "You lose" section appear and also when the scoreboard loads.
+🧩 Classes
+🐸 Frog Class
+
+Description: Controls the frog character and its behaviors.
+Methods
+
+draw() — Draw the frog to the screen
+
+get_rect() — Return the bounding box for collision detection
+
+left — Tracks whether the frog is facing left (used to flip sprite)
+
+move() — Move frog left/right and update state (idle, jumping, landing)
+
+follow_mouse() — (Optional) Move the frog to follow the mouse
+
+🪰 Fly Class
+
+Description: Flies move randomly and spawn at random screen positions.
+Methods
+
+draw() — Draw a fly
+
+get_rect() — Return the bounding box
+
+move() — Update fly position given speed and direction
+
+move_randomly() — Add jitter/shake to fly movement
+
+📝 Text Class
+
+Description: Handles on-screen messages and scoreboard text.
+Methods
+
+draw() — Render the message on screen
+
+get_rect() — Return bounding box for the text
+
+setMessage() — Set message content and properties
+
+🎨 Drawable Class (Abstract Base)
+
+Description: Base class for drawable game objects.
+Methods / Features
+
+Getters and setters for position (getX, getY, setLoc, etc.)
+
+Visibility controls (isVisible, setVisible)
+
+intersects() — Check collision with another drawable
+
+Abstract methods that child classes must implement (e.g., draw, get_rect, move)
+
+🏗️ Main Script
+
+The main game loop is wrapped in a function (inspired by CS171 pathway games), which makes it straightforward to restart/replay the game if the player chooses to play again.
+
+The main script initializes game objects, starts the timer, handles input, updates objects, checks collisions, and shows win/lose screens.
+
+⏱️ Score Tracking
+
+Time taken — Tracked from the starting condition; used to determine win/lose and ranking.
+
+Number of flies eaten — Must reach 5 to win.
+
+Scoreboard — Shows previous games and top (fastest) times.
+
+✅ Required Elements
+
+Predator tracking: Number of flies eaten shown in the top-left corner.
+
+Starting condition: Timer starts when the game begins.
+
+Changing condition: Time and flies-eaten counters update during play; flies disappear when eaten; frog moves and jumps; flies move randomly.
+
+Final condition: When the game ends, a Win/Lose message appears (e.g., “Congrats” or “You lose”) and the scoreboard loads with the results.
+
+🐸 Final Notes
+
+Eat quickly and keep your time under 10 seconds.
+
+Lower times are better — try to beat your personal best!
