@@ -12,7 +12,6 @@ A simple Pygame project where you play as a hungry frog trying to eat flies as f
 ```bash
 pip install pygame
 
-Run
 python main.py
 ```
 
